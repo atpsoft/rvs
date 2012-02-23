@@ -57,7 +57,11 @@ class Test_rvs < DohTest::TestGroup
   end
 
   def test_mixed
-    verify({1 => ['blah'], ['blee'] => {4 => 5}}, '{w1>[s4:blah],[s4:blee]>{w4>w5}}')
+    verify({1 => ['blah'], ['blee',nil] => {4 => 5}}, '{w1>[s4:blah],[s4:blee,z]>{w4>w5}}')
+  end
+
+  def test_nil
+    verify(nil, 'z')
   end
 
   def test_string

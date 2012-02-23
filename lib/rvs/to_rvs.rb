@@ -74,3 +74,9 @@ class Hash
     "{#{ary.join(',')}}"
   end
 end
+
+class NilClass
+  def to_rvs
+    'z'
+  end
+end

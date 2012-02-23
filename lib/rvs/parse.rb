@@ -84,6 +84,8 @@ class Parser
       @scan.scan(/\d+/).to_i
     elsif type_identifier == 'c'
       BigDecimal(@scan.scan(/[0-9\.]+/))
+    elsif type_identifier == 'z'
+      nil
     else
       raise "unexpected type identifier"
     end
