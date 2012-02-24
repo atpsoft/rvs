@@ -4,6 +4,7 @@ require 'time'
 
 class String
   def to_rvs
+    raise "non-ascii strings aren't currently supported" unless ascii_only?
     %Q{"#{self}"}
   end
 end
