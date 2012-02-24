@@ -81,8 +81,9 @@ class Parser
         @scan.getch
         break
       end
-      # throw away the comma , or >
-      @scan.getch if [',','>'].include?(next_char)
+      # throw away the following delimiter chars
+      @scan.getch if next_char == ','
+      get_chars(2) if next_char == '='
 
       next_value = parse_item
       if curr_key

@@ -59,7 +59,7 @@ class Hash
   def to_rvs
     ary = []
     each_pair do |key, value|
-      ary.push("#{key.to_rvs}>#{value.to_rvs}")
+      ary.push("#{key.to_rvs}=>#{value.to_rvs}")
     end
     "{#{ary.join(',')}}"
   end

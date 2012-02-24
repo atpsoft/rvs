@@ -51,13 +51,13 @@ class Test_rvs < DohTest::TestGroup
   end
 
   def test_hash
-    verify({1 => 2}, '{1>2}')
-    verify({1 => 2, 3 => 4}, '{1>2,3>4}')
-    verify({1 => 2, 3 => {4 => 5}}, '{1>2,3>{4>5}}')
+    verify({1 => 2}, '{1=>2}')
+    verify({1 => 2, 3 => 4}, '{1=>2,3=>4}')
+    verify({1 => 2, 3 => {4 => 5}}, '{1=>2,3=>{4=>5}}')
   end
 
   def test_mixed
-    verify({1 => ['blah'], ['blee',nil] => {4 => 5}}, '{1>["blah"],["blee",nil]>{4>5}}')
+    verify({1 => ['blah'], ['blee',nil] => {4 => 5}}, '{1=>["blah"],["blee",nil]=>{4=>5}}')
   end
 
   def test_nil
