@@ -18,8 +18,12 @@ class Parser
     elsif next_char == '{'
       parse_hash
     elsif next_char == '"'
-      return '' if @scan.peek(1) == '"'
-      @scan.scan(/.*?"/).chop
+      if @scan.peek(1) == '"'
+        get_chars(1)
+        ''
+      else
+        @scan.scan(/.*?"/).chop
+      end
     elsif next_char == 'd'
       strval = @scan.scan(/[0-9-]+/)
       if @scan.peek(1) == ' '

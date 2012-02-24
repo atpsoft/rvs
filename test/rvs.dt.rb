@@ -64,6 +64,10 @@ class Test_rvs < DohTest::TestGroup
     verify(nil, 'nil')
   end
 
+  def test_nonempty_string_following_empty_string
+    verify(['', 'blah'], '["","blah"]')
+  end
+
   def test_string
     verify('', %q{""})
     verify('blah', %q{"blah"})
