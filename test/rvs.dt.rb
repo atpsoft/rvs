@@ -35,8 +35,8 @@ class Test_rvs < DohTest::TestGroup
   end
 
   def test_datetime
-    verify(DateTime.new(2012,2,9,1,5,7), 'e20120209010507')
-    verify(DateTime.new(2012,2,9,17,39,45), 'e20120209173945')
+    verify(DateTime.new(2012,2,9,1,5,7), 'd20120209010507')
+    verify(DateTime.new(2012,2,9,17,39,45), 'd20120209173945')
   end
 
   def test_time

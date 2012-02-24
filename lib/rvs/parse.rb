@@ -18,9 +18,12 @@ class Parser
     elsif next_char == '{'
       parse_hash
     elsif next_char == 'd'
-      Date.strptime(get_chars(8), '%Y%m%d')
-    elsif next_char == 'e'
-      DateTime.strptime(get_chars(14), '%Y%m%d%H%M%S')
+      strval = @scan.scan(/[0-9-]+/)
+      if strval.size == 8
+        Date.strptime(strval, '%Y%m%d')
+      else
+        DateTime.strptime(strval, '%Y%m%d%H%M%S')
+      end
     elsif next_char == 'f'
       get_chars(4)
       false

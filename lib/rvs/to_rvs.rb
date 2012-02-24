@@ -38,7 +38,7 @@ end
 
 class DateTime
   def to_rvs
-    "e#{strftime('%Y%m%d%H%M%S')}"
+    "d#{strftime('%Y%m%d%H%M%S')}"
   end
 end
 
