@@ -24,13 +24,13 @@ end
 
 class FalseClass
   def to_rvs
-    'b0'
+    'false'
   end
 end
 
 class TrueClass
   def to_rvs
-    'b1'
+    'true'
   end
 end
 
@@ -77,6 +77,6 @@ end
 
 class NilClass
   def to_rvs
-    'z'
+    'nil'
   end
 end

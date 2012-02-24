@@ -17,21 +17,28 @@ class Parser
       parse_array
     elsif next_char == '{'
       parse_hash
-    elsif next_char == 'b'
-      @scan.getch == '1'
     elsif next_char == 'd'
       Date.strptime(get_chars(8), '%Y%m%d')
     elsif next_char == 'e'
       DateTime.strptime(get_chars(14), '%Y%m%d%H%M%S')
+    elsif next_char == 'f'
+      get_chars(4)
+      false
     elsif next_char == 't'
-      Time.strptime(get_chars(14), '%Y%m%d%H%M%S')
+      if @scan.peek(1) == 'r'
+        get_chars(3)
+        true
+      else
+        Time.strptime(get_chars(14), '%Y%m%d%H%M%S')
+      end
     elsif next_char == 's'
       get_chars(@scan.scan_until(/:/).chop.to_i)
     elsif next_char == 'w'
       @scan.scan(/\d+/).to_i
     elsif next_char == 'c'
       BigDecimal(@scan.scan(/[0-9\.]+/))
-    elsif next_char == 'z'
+    elsif next_char == 'n'
+      get_chars(2)
       nil
     else
       raise "unexpected type identifier"
