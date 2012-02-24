@@ -86,6 +86,7 @@ class Test_rvs < DohTest::TestGroup
     verify('blah', %q{"blah"})
     verify('blahblee', %q{"blahblee"})
     verify('blahb\'lee', %q{"blahb'lee"})
+    verify('blahb\\lee', %q{s9:blahb\lee})
     verify('blahb"lee', %q{s9:blahb"lee})
     verify('blahb\'le"e', %q{s10:blahb'le"e})
   end
