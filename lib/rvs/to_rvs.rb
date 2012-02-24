@@ -70,3 +70,9 @@ class NilClass
     'nil'
   end
 end
+
+class Symbol
+  def to_rvs
+    ":#{to_s}"
+  end
+end

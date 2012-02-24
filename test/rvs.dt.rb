@@ -57,11 +57,15 @@ class Test_rvs < DohTest::TestGroup
   end
 
   def test_mixed
-    verify({1 => ['blah'], ['blee',nil] => {4 => 5}}, '{1=>["blah"],["blee",nil]=>{4=>5}}')
+    verify({1 => ['blah'], ['blee',nil] => {:yeh => 5}}, '{1=>["blah"],["blee",nil]=>{:yeh=>5}}')
   end
 
   def test_nil
     verify(nil, 'nil')
+  end
+
+  def test_symbol
+    verify(:blah, ':blah')
   end
 
   def test_nonempty_string_following_empty_string
