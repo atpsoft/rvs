@@ -17,6 +17,9 @@ class Parser
       parse_array
     elsif next_char == '{'
       parse_hash
+    elsif next_char == '"'
+      return '' if @scan.peek(1) == '"'
+      @scan.scan(/.*?"/).chop
     elsif next_char == 'd'
       strval = @scan.scan(/[0-9-]+/)
       if @scan.peek(1) == ' '
@@ -35,8 +38,6 @@ class Parser
       else
         Time.strptime(get_chars(19), '%Y-%m-%d %H:%M:%S')
       end
-    elsif next_char == 's'
-      get_chars(@scan.scan_until(/:/).chop.to_i)
     elsif next_char == 'c'
       BigDecimal(@scan.scan(/[0-9\.]+/))
     elsif next_char == 'n'

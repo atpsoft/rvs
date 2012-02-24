@@ -57,7 +57,7 @@ class Test_rvs < DohTest::TestGroup
   end
 
   def test_mixed
-    verify({1 => ['blah'], ['blee',nil] => {4 => 5}}, '{1>[s4:blah],[s4:blee,nil]>{4>5}}')
+    verify({1 => ['blah'], ['blee',nil] => {4 => 5}}, '{1>["blah"],["blee",nil]>{4>5}}')
   end
 
   def test_nil
@@ -65,10 +65,10 @@ class Test_rvs < DohTest::TestGroup
   end
 
   def test_string
-    verify('', 's0:')
-    verify('blah', 's4:blah')
-    verify('blahblee', 's8:blahblee')
-    verify('blahb\'lee', "s9:blahb'lee")
-    verify('blahb\'le"e', %q{s10:blahb'le"e})
+    verify('', %q{""})
+    verify('blah', %q{"blah"})
+    verify('blahblee', %q{"blahblee"})
+    verify('blahb\'lee', %q{"blahb'lee"})
+    # verify('blahb\'le"e', %q{"blahb'le"e""})
   end
 end

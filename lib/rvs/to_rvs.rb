@@ -4,7 +4,7 @@ require 'time'
 
 class String
   def to_rvs
-    "s#{size}:#{self}"
+    %Q{"#{self}"}
   end
 end
 
