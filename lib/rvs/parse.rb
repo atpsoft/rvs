@@ -45,7 +45,7 @@ class Parser
         Time.strptime(get_chars(19), '%Y-%m-%d %H:%M:%S')
       end
     elsif next_char == 'c'
-      BigDecimal(@scan.scan(/[0-9\.]+/))
+      BigDecimal(@scan.scan(/-?[0-9\.]+/))
     elsif next_char == 'n'
       get_chars(2)
       nil
