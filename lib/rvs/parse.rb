@@ -35,8 +35,12 @@ class Parser
         Date.strptime(strval, '%Y-%m-%d')
       end
     elsif next_char == 'f'
-      get_chars(4)
-      false
+      if @scan.peek(1) == 'a'
+        get_chars(4)
+        false
+      else
+        @scan.scan(/-?[0-9\.]+/).to_f
+      end
     elsif next_char == 't'
       if @scan.peek(1) == 'r'
         get_chars(3)

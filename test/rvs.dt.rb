@@ -33,6 +33,12 @@ class Test_rvs < DohTest::TestGroup
     verify(BigDecimal('100.143912981212381923'), 'c100.143912981212381923')
   end
 
+  def test_float
+    verify(100.0, 'f100.0')
+    verify(100.14, 'f100.14')
+    verify(-100.14, 'f-100.14')
+  end
+
   def test_date
     verify(Date.new(2012,2,9), 'd2012-02-09')
   end

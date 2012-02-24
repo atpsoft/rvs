@@ -77,3 +77,9 @@ class Symbol
     ":#{to_s}"
   end
 end
+
+class Float
+  def to_rvs
+    "f#{to_s}"
+  end
+end
