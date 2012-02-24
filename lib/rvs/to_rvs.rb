@@ -5,10 +5,11 @@ require 'time'
 class String
   def to_rvs
     raise "non-ascii strings aren't currently supported" unless ascii_only?
+    no_specials = gsub(/\n/, '\n').gsub(/\r/, '\r').gsub(/\t/, '\t')
     if index('"') || index('\\')
-      "s#{size}:#{self}"
+      "s#{size}:#{no_specials}"
     else
-      %Q{"#{self}"}
+      %Q{"#{no_specials}"}
     end
   end
 end
