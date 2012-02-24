@@ -40,8 +40,8 @@ class Test_rvs < DohTest::TestGroup
   end
 
   def test_time
-    verify(Time.new(2012,2,9,1,5,7), 't20120209010507')
-    verify(Time.new(2012,2,9,17,39,45), 't20120209173945')
+    verify(Time.new(2012,2,9,1,5,7), 't2012-02-09 01:05:07')
+    verify(Time.new(2012,2,9,17,39,45), 't2012-02-09 17:39:45')
   end
 
   def test_array

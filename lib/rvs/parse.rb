@@ -33,7 +33,7 @@ class Parser
         get_chars(3)
         true
       else
-        Time.strptime(get_chars(14), '%Y%m%d%H%M%S')
+        Time.strptime(get_chars(19), '%Y-%m-%d %H:%M:%S')
       end
     elsif next_char == 's'
       get_chars(@scan.scan_until(/:/).chop.to_i)
