@@ -12,11 +12,11 @@ class Test_rvs < DohTest::TestGroup
   def test_whole_numbers
     fixnum = 1000
     assert(fixnum.is_a?(Fixnum))
-    verify(fixnum, 'w1000')
+    verify(fixnum, '1000')
 
     bignum = 9999999999999999999999999999999
     assert(bignum.is_a?(Bignum))
-    verify(bignum, 'w9999999999999999999999999999999')
+    verify(bignum, '9999999999999999999999999999999')
   end
 
   def test_boolean
@@ -45,19 +45,19 @@ class Test_rvs < DohTest::TestGroup
   end
 
   def test_array
-    verify([1, 2], '[w1,w2]')
-    verify([1, [2,3]], '[w1,[w2,w3]]')
-    verify([1, [2,[3,4]]], '[w1,[w2,[w3,w4]]]')
+    verify([1, 2], '[1,2]')
+    verify([1, [2,3]], '[1,[2,3]]')
+    verify([1, [2,[3,4]]], '[1,[2,[3,4]]]')
   end
 
   def test_hash
-    verify({1 => 2}, '{w1>w2}')
-    verify({1 => 2, 3 => 4}, '{w1>w2,w3>w4}')
-    verify({1 => 2, 3 => {4 => 5}}, '{w1>w2,w3>{w4>w5}}')
+    verify({1 => 2}, '{1>2}')
+    verify({1 => 2, 3 => 4}, '{1>2,3>4}')
+    verify({1 => 2, 3 => {4 => 5}}, '{1>2,3>{4>5}}')
   end
 
   def test_mixed
-    verify({1 => ['blah'], ['blee',nil] => {4 => 5}}, '{w1>[s4:blah],[s4:blee,nil]>{w4>w5}}')
+    verify({1 => ['blah'], ['blee',nil] => {4 => 5}}, '{1>[s4:blah],[s4:blee,nil]>{4>5}}')
   end
 
   def test_nil

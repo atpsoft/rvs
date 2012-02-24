@@ -33,13 +33,14 @@ class Parser
       end
     elsif next_char == 's'
       get_chars(@scan.scan_until(/:/).chop.to_i)
-    elsif next_char == 'w'
-      @scan.scan(/\d+/).to_i
     elsif next_char == 'c'
       BigDecimal(@scan.scan(/[0-9\.]+/))
     elsif next_char == 'n'
       get_chars(2)
       nil
+    elsif next_char =~ /\d/
+      @scan.pos = @scan.pos - 1
+      @scan.scan(/\d+/).to_i
     else
       raise "unexpected type identifier"
     end

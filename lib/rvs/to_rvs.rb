@@ -8,18 +8,12 @@ class String
   end
 end
 
-module WholeNumberToRvs
-  def to_rvs
-    "w#{self}"
-  end
-end
-
 class Fixnum
-  include WholeNumberToRvs
+  alias :to_rvs :to_s
 end
 
 class Bignum
-  include WholeNumberToRvs
+  alias :to_rvs :to_s
 end
 
 class FalseClass
