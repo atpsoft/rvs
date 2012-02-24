@@ -12,20 +12,33 @@ class Parser
   end
 
   def parse_item
-    next_char = @scan.peek(1)
+    next_char = @scan.getch
     if next_char == '['
       parse_array
     elsif next_char == '{'
       parse_hash
+    elsif next_char == 'b'
+      @scan.getch == '1'
+    elsif next_char == 'd'
+      Date.strptime(get_chars(8), '%Y%m%d')
+    elsif next_char == 'e'
+      DateTime.strptime(get_chars(14), '%Y%m%d%H%M%S')
+    elsif next_char == 't'
+      Time.strptime(get_chars(14), '%Y%m%d%H%M%S')
+    elsif next_char == 's'
+      get_chars(@scan.scan_until(/:/).chop.to_i)
+    elsif next_char == 'w'
+      @scan.scan(/\d+/).to_i
+    elsif next_char == 'c'
+      BigDecimal(@scan.scan(/[0-9\.]+/))
+    elsif next_char == 'z'
+      nil
     else
-      parse_value
+      raise "unexpected type identifier"
     end
   end
 
   def parse_array
-    # throw away the opening [
-    @scan.getch
-
     retval = []
     while !@scan.eos?
       next_char = @scan.peek(1)
@@ -42,9 +55,6 @@ class Parser
   end
 
   def parse_hash
-    # throw away the opening {
-    @scan.getch
-
     retval = {}
     curr_key = nil
     while !@scan.eos?
@@ -66,29 +76,6 @@ class Parser
       end
     end
     retval
-  end
-
-  def parse_value
-    type_identifier = @scan.getch
-    if type_identifier == 'b'
-      @scan.getch == '1'
-    elsif type_identifier == 'd'
-      Date.strptime(get_chars(8), '%Y%m%d')
-    elsif type_identifier == 'e'
-      DateTime.strptime(get_chars(14), '%Y%m%d%H%M%S')
-    elsif type_identifier == 't'
-      Time.strptime(get_chars(14), '%Y%m%d%H%M%S')
-    elsif type_identifier == 's'
-      get_chars(@scan.scan_until(/:/).chop.to_i)
-    elsif type_identifier == 'w'
-      @scan.scan(/\d+/).to_i
-    elsif type_identifier == 'c'
-      BigDecimal(@scan.scan(/[0-9\.]+/))
-    elsif type_identifier == 'z'
-      nil
-    else
-      raise "unexpected type identifier"
-    end
   end
 
   def get_chars(count)
