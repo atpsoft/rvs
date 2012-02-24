@@ -32,13 +32,13 @@ end
 
 class Date
   def to_rvs
-    "d#{strftime('%Y%m%d')}"
+    "d#{strftime('%Y-%m-%d')}"
   end
 end
 
 class DateTime
   def to_rvs
-    "d#{strftime('%Y%m%d%H%M%S')}"
+    "d#{strftime('%Y-%m-%d %H:%M:%S')}"
   end
 end
 

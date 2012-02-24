@@ -19,10 +19,11 @@ class Parser
       parse_hash
     elsif next_char == 'd'
       strval = @scan.scan(/[0-9-]+/)
-      if strval.size == 8
-        Date.strptime(strval, '%Y%m%d')
+      if @scan.peek(1) == ' '
+        strval += get_chars(9)
+        DateTime.strptime(strval, '%Y-%m-%d %H:%M:%S')
       else
-        DateTime.strptime(strval, '%Y%m%d%H%M%S')
+        Date.strptime(strval, '%Y-%m-%d')
       end
     elsif next_char == 'f'
       get_chars(4)
