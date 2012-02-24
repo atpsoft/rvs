@@ -17,15 +17,11 @@ class Bignum
 end
 
 class FalseClass
-  def to_rvs
-    'false'
-  end
+  alias :to_rvs :to_s
 end
 
 class TrueClass
-  def to_rvs
-    'true'
-  end
+  alias :to_rvs :to_s
 end
 
 class BigDecimal
