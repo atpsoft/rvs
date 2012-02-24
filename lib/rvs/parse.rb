@@ -51,7 +51,7 @@ class Parser
       @scan.pos = @scan.pos - 1
       @scan.scan(/\d+/).to_i
     else
-      raise "unexpected type identifier"
+      raise "unexpected type identifier *#{next_char}*; string remainder is #{@scan.rest}"
     end
   end
 
