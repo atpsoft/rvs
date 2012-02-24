@@ -49,9 +49,9 @@ class Parser
     elsif next_char == 'n'
       get_chars(2)
       nil
-    elsif next_char =~ /\d/
+    elsif next_char =~ /[0-9-]/
       @scan.pos = @scan.pos - 1
-      @scan.scan(/\d+/).to_i
+      @scan.scan(/-?\d+/).to_i
     else
       raise "unexpected type identifier *#{next_char}*; string remainder is #{@scan.rest}"
     end

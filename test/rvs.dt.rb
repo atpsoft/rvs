@@ -17,6 +17,8 @@ class Test_rvs < DohTest::TestGroup
     bignum = 9999999999999999999999999999999
     assert(bignum.is_a?(Bignum))
     verify(bignum, '9999999999999999999999999999999')
+
+    verify(-5, '-5')
   end
 
   def test_boolean
@@ -57,7 +59,7 @@ class Test_rvs < DohTest::TestGroup
   end
 
   def test_mixed
-    verify({1 => ['blah'], ['blee',nil] => {:yeh => 5}}, '{1=>["blah"],["blee",nil]=>{:yeh=>5}}')
+    verify({1 => ['blah'], ['blee',nil, -4] => {:yeh => 5}}, '{1=>["blah"],["blee",nil,-4]=>{:yeh=>5}}')
   end
 
   def test_nil
