@@ -24,6 +24,8 @@ class Parser
       else
         @scan.scan(/.*?"/).chop
       end
+    elsif next_char == 's'
+      get_chars(@scan.scan_until(/:/).chop.to_i)
     elsif next_char == ':'
       @scan.scan(/[a-zA-z_]+\w*/).to_sym
     elsif next_char == 'd'
