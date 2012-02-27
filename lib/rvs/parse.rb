@@ -1,5 +1,6 @@
 require 'strscan'
 require 'bigdecimal'
+require 'yajl'
 
 module RVS
 class Parser
@@ -22,10 +23,9 @@ class Parser
         get_chars(1)
         ''
       else
-        reverse_special_chars(@scan.scan(/.*?"/).chop)
+        strval = '"' + @scan.scan(/.*?[^\\]+?\"/)
+        Yajl::Parser.new.parse(strval)
       end
-    elsif next_char == 's'
-      reverse_special_chars(get_chars(@scan.scan_until(/:/).chop.to_i))
     elsif next_char == ':'
       @scan.scan(/[a-zA-z_]+\w*/).to_sym
     elsif next_char == 'd'
@@ -102,10 +102,6 @@ class Parser
       end
     end
     retval
-  end
-
-  def reverse_special_chars(str)
-    str.gsub(/\\n/, "\n").gsub(/\\r/, "\r").gsub(/\\t/, "\t")
   end
 
   def get_chars(count)

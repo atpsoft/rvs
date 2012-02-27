@@ -1,16 +1,11 @@
 require 'bigdecimal'
 require 'date'
 require 'time'
+require 'yajl'
 
 class String
   def to_rvs
-    raise "non-ascii strings aren't currently supported" unless ascii_only?
-    no_specials = gsub(/\n/, '\n').gsub(/\r/, '\r').gsub(/\t/, '\t')
-    if index('"') || index('\\')
-      "s#{size}:#{no_specials}"
-    else
-      %Q{"#{no_specials}"}
-    end
+    Yajl::Encoder.encode(self)
   end
 end
 
