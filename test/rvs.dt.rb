@@ -1,5 +1,5 @@
-require_relative '../lib/rvs/parse'
-require_relative '../lib/rvs/to_rvs'
+require 'rvs/parse'
+require 'rvs/to_rvs'
 
 class Test_rvs < DohTest::TestGroup
   def verify(original_obj, expected_str)
