@@ -27,7 +27,7 @@ class Parser
         Yajl::Parser.new.parse(strval)
       end
     elsif next_char == ':'
-      @scan.scan(/[a-zA-z_]+\w*/).to_sym
+      @scan.scan(/[a-zA-Z_]+\w*/).to_sym
     elsif next_char == 'd'
       strval = @scan.scan(/[0-9-]+/)
       if @scan.peek(1) == ' '
