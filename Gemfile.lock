@@ -1,0 +1,22 @@
+PATH
+  remote: .
+  specs:
+    rvs (0.1.4)
+      yajl-ruby (>= 1.1.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    dohroot (0.1.1)
+    dohtest (0.1.17)
+      dohroot (>= 0.1.0)
+      term-ansicolor (>= 1.0.7)
+    term-ansicolor (1.1.5)
+    yajl-ruby (1.1.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  dohtest (>= 0.1.17)
+  rvs!
