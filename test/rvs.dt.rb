@@ -1,5 +1,4 @@
-require 'rvs/parse'
-require 'rvs/to_rvs'
+require 'rvs'
 
 class Test_rvs < DohTest::TestGroup
   def verify(original_obj, expected_str)
