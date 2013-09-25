@@ -2,7 +2,7 @@ require 'rake'
 
 Gem::Specification.new do |s|
   s.name = 'rvs'
-  s.version = '0.1.4'
+  s.version = '0.1.5'
   s.summary = 'Ruby Values Serialization to ascii text'
   s.description = 'serialization of common ruby value classes to ascii text'
   s.require_path = 'lib'
