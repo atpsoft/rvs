@@ -27,7 +27,7 @@ class Test_rvs < DohTest::TestGroup
 
   def test_bigdecimal
     verify(BigDecimal('100'), 'c100.0')
-    verify(BigDecimal('100.14'), 'c100.14')
+    verify(BigDecimal('100.15'), 'c100.15')
     verify(BigDecimal('-100.14'), 'c-100.14')
     verify(BigDecimal('100.143912981212381923'), 'c100.143912981212381923')
   end
