@@ -9,12 +9,19 @@ class String
   end
 end
 
-class Fixnum
-  alias :to_rvs :to_s
-end
+# this is my temporary hack for detecting 2.4
+if 0.respond_to?(:infinite?)
+  class Integer
+    alias :to_rvs :to_s
+  end
+else
+  class Fixnum
+    alias :to_rvs :to_s
+  end
 
-class Bignum
-  alias :to_rvs :to_s
+  class Bignum
+    alias :to_rvs :to_s
+  end
 end
 
 class FalseClass
