@@ -9,11 +9,11 @@ class Test_rvs < DohTest::TestGroup
   end
 
   def test_whole_numbers
-    fixnum = 1000
-    verify(fixnum, '1000')
+    small_number = 1000
+    verify(small_number, '1000')
 
-    bignum = 9999999999999999999999999999999
-    verify(bignum, '9999999999999999999999999999999')
+    big_number = 9999999999999999999999999999999
+    verify(big_number, '9999999999999999999999999999999')
 
     verify(-5, '-5')
   end
