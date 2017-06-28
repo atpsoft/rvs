@@ -10,11 +10,9 @@ class Test_rvs < DohTest::TestGroup
 
   def test_whole_numbers
     fixnum = 1000
-    assert(fixnum.is_a?(Fixnum))
     verify(fixnum, '1000')
 
     bignum = 9999999999999999999999999999999
-    assert(bignum.is_a?(Bignum))
     verify(bignum, '9999999999999999999999999999999')
 
     verify(-5, '-5')
