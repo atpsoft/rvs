@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.description = 'serialization of common ruby value classes to ascii text'
   s.require_path = 'lib'
   s.required_ruby_version = '>= 2.2.0'
-  s.add_runtime_dependency 'yajl-ruby', '>= 1.1.0'
-  s.add_development_dependency 'dohtest', '>= 0.1.42'
+  s.add_runtime_dependency 'yajl-ruby', '~> 1.1'
+  s.add_development_dependency 'dohtest', '~> 0.1'
   s.authors = ['Makani Mason', 'Kem Mason']
   s.homepage = 'https://github.com/atpsoft/rvs'
   s.license = 'MIT'
