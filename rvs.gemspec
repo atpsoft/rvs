@@ -2,11 +2,11 @@ require 'rake'
 
 Gem::Specification.new do |s|
   s.name = 'rvs'
-  s.version = '0.1.6'
+  s.version = '0.1.7'
   s.summary = 'Ruby Values Serialization to ascii text'
   s.description = 'serialization of common ruby value classes to ascii text'
   s.require_path = 'lib'
-  s.required_ruby_version = '>= 2.0.0'
+  s.required_ruby_version = '>= 2.2.0'
   s.add_runtime_dependency 'yajl-ruby', '>= 1.1.0'
   s.add_development_dependency 'dohtest', '>= 0.1.42'
   s.authors = ['Makani Mason', 'Kem Mason']
